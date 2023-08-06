@@ -6,7 +6,7 @@ const ProductCard = ({ product, handleAddToCart}) => {
 	// console.log(product);
 
 	return (
-		<div className="card max-w-xs mx-auto bg-base-100 shadow-md">
+		<div className="card max-w-xs mx-auto bg-base-100 shadow-md shadow-sky-100">
             {/* click image to see product details */}
 			<Link to={`/details/${id}`}>
 				<figure>

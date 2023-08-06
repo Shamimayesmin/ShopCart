@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { CiDeliveryTruck} from "react-icons/ci";
+import { CiDeliveryTruck } from "react-icons/ci";
 import { MdOutlineAssignmentReturn } from "react-icons/md";
 const ProductDetails = () => {
 	const data = useLoaderData();
@@ -37,6 +37,7 @@ const ProductDetails = () => {
 						</h1>
 						<p className="leading-relaxed mt-3">{description}</p>
 
+						{/* ratting */}
 						<div className="flex mb-4">
 							<span className="flex items-center mt-2">
 								<svg
@@ -98,6 +99,7 @@ const ProductDetails = () => {
 							</span>
 						</div>
 						<hr />
+						{/* product price */}
 						<div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-2">
 							<div className="ml-3 items-center">
 								<span className="mr-3 title-font font-medium text-2xl text-gray-900">
@@ -108,12 +110,14 @@ const ProductDetails = () => {
 								</p>
 							</div>
 						</div>
+						{/* choose color  */}
 						<div className="flex items-center pb-3 border-b-2 border-gray-100 mb-3">
 							<div className="ml-5 items-center">
 								<p className="text-xl font-medium mb-3">Choose color</p>
 								<input type="color" />
 							</div>
 						</div>
+						{/* total product */}
 						<div className="flex items-center pb-3 mb-3">
 							<div className="ml-5 items-center">
 								<button className="text-2xl font-medium bg-slate-100 p-3 rounded-full">
@@ -131,6 +135,7 @@ const ProductDetails = () => {
 								</span>
 							</div>
 						</div>
+						{/* buttons for buy and add  to cart */}
 						<div className="flex mb-5">
 							<Link className="flex ml-auto text-white bg-teal-700 border-0 py-2 px-8 focus:outline-none hover:bg-teal-500 rounded-full">
 								Buy Now
@@ -140,11 +145,11 @@ const ProductDetails = () => {
 								Add to cart
 							</Link>
 						</div>
-
+						{/* delivery section */}
 						<div className="flex items-center pb-3 border-2 border-b-2 border-gray-100 mt-3">
 							<div className="ml-5 items-center">
 								<span className="flex items-center">
-									<CiDeliveryTruck className="text-amber-500 text-2xl font-bold"/>
+									<CiDeliveryTruck className="text-amber-500 text-2xl font-bold" />
 									<span className="text-xl font-medium mb-1 mt-1 ml-2">
 										Free delivary
 									</span>
@@ -157,13 +162,13 @@ const ProductDetails = () => {
 						</div>
 						<div className="flex items-center pb-3 border-2 border-t-0 border-gray-100 mb-3">
 							<div className="ml-5 items-center">
-                            <span className="flex items-center">
-									<MdOutlineAssignmentReturn className="text-amber-500 text-xl font-medium"/>
+								<span className="flex items-center">
+									<MdOutlineAssignmentReturn className="text-amber-500 text-xl font-medium" />
 									<span className="text-xl font-medium mb-1 mt-1 ml-2">
-                                    Return delivary
+										Return delivary
 									</span>
 								</span>
-								
+
 								<p className="text-xs ml-7">
 									Free 30 days delivery return.{" "}
 									<span className="underline">Details</span>{" "}

@@ -31,6 +31,9 @@ const Nav = () => {
 	const menuItems = (
 		<>
 			<li>
+				<Link to='/'>Home</Link>
+			</li>
+			<li>
 				<Link>Categories</Link>
 			</li>
 			<li>
@@ -72,6 +75,7 @@ const Nav = () => {
 						{menuItems}
 					</ul>
 				</div>
+                
 				<div>
 					<img
 						className="w-12 h-12 lg:block sm:hidden"

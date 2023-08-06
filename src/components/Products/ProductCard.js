@@ -2,18 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product, handleAddToCart }) => {
-	const { image,id, description, price, title, rating } = product;
+	const { image, id, description, price, title, rating } = product;
 	console.log(product);
-
-	// const { cart, setCart } = useContext(CartContext);
 
 	return (
 		<div className="card w-96 bg-base-100 shadow-xl">
+            {/* click image to see product details */}
 			<Link to={`/details/${id}`}>
 				<figure>
 					<img src={image} alt="Shoes" className="h-52 w-52 my-2" />
 				</figure>
 			</Link>
+
+            {/* product body */}
 			<div className="card-body">
 				<h2 className="card-title">
 					{title.slice(0, 15)}... <small></small>
@@ -63,7 +64,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
 						<p>({rating.rate})</p>
 					</div>
 				</div>
-				{/* onClick={()=>handleAddToCart(product)} */}
+				{/* add to cart button */}
 				<div className="justify-start">
 					<button
 						onClick={() => handleAddToCart(product)}

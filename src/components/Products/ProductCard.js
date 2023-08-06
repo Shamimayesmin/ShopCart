@@ -1,20 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ product, handleAddToCart}) => {
+const ProductCard = ({ product, handleAddToCart }) => {
 	const { image, id, description, price, title, rating } = product;
 	// console.log(product);
 
 	return (
 		<div className="card max-w-xs mx-auto bg-base-100 shadow-md shadow-sky-100">
-            {/* click image to see product details */}
+			{/* click image to see product details */}
 			<Link to={`/details/${id}`}>
 				<figure>
 					<img src={image} alt="Shoes" className="h-52 w-52 my-2" />
 				</figure>
 			</Link>
 
-            {/* product body */}
+			{/* product body */}
 			<div className="card-body">
 				<h2 className="card-title">
 					{title.slice(0, 15)}... <small></small>

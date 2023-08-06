@@ -48,7 +48,8 @@ const Products = () => {
 			</div>
 			<div className="my-20">
 				<h1 className="text-3xl font-bold my-7 ml-16">
-					Choose <span className="border-b-4 border-teal-600">Product for you</span>
+					Choose{" "}
+					<span className="border-b-4 border-teal-600">Product for you</span>
 				</h1>
 				<div className="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-y-10 gap-x-2">
 					{products?.map((product) => (

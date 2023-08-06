@@ -11,15 +11,8 @@ const Main = () => {
 			<ProductProvider>
 				<Nav></Nav>
 				<Outlet></Outlet>
-                <Footer></Footer>
+				<Footer></Footer>
 			</ProductProvider>
-
-			{/* <ProductContext.Provider value={products}>
-				<CartContext.Provider value={[cart, setCart]}>
-					<Nav></Nav>
-					<Outlet></Outlet>
-				</CartContext.Provider>
-			</ProductContext.Provider> */}
 		</div>
 	);
 };

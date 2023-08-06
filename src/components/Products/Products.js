@@ -2,15 +2,14 @@ import React from "react";
 import ProductCard from "./ProductCard";
 
 import { useCart, useProducts } from "../CartContext/CartProvider";
+import { toast } from "react-hot-toast";
 
 const Products = () => {
-
-    // context to mange state
+	// context to mange state
 	const products = useProducts();
 	const [cart, setCart] = useCart();
 
-
-    // loader 
+	// loader
 	if (products.length === 0) {
 		return (
 			<div className="w-28 mx-auto mt-8">
@@ -19,8 +18,7 @@ const Products = () => {
 		);
 	}
 
-
-    // add item in the cart
+	// add item in the cart
 	const handleAddToCart = (product) => {
 		const existingCartItem = cart.find((item) => item.id === product.id);
 		if (existingCartItem) {
@@ -31,13 +29,12 @@ const Products = () => {
 		} else {
 			setCart([...cart, { ...product, quantity: 1 }]);
 		}
+		toast.success("product added !", { autoClose: 500 });
 	};
 
 	return (
 		<div>
 			<div className="flex gap-3 my-10">
-				<button className="btn rounded-full bg-slate-100">Product Type</button>
-				<button className="btn rounded-full bg-slate-100">Price</button>
 				<button className="btn rounded-full bg-slate-100">Review</button>
 				<button className="btn rounded-full bg-slate-100">Color</button>
 				<button className="btn rounded-full bg-slate-100">Material</button>
@@ -50,9 +47,11 @@ const Products = () => {
 				</div>
 			</div>
 			<div className="my-20">
-				<h1 className="text-3xl font-bold my-7">Choose Product for you</h1>
-				<div className="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-					{products.map((product) => (
+				<h1 className="text-3xl font-bold my-7 ml-16">
+					Choose Product for you
+				</h1>
+				<div className="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-y-10 gap-x-2">
+					{products?.map((product) => (
 						<ProductCard
 							key={product.id}
 							product={product}

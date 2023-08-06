@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { useCart } from "../CartContext/CartProvider";
+import { toast } from "react-hot-toast";
 
 const Nav = () => {
 	const [cart, setCart] = useCart();
-	
 
-    // count total price of products
+	// count total price of products
 	const handleQuantityChange = (product, newQuantity) => {
 		if (newQuantity > 0) {
 			const updatedCart = cart.map((item) =>
@@ -17,13 +17,14 @@ const Nav = () => {
 		}
 	};
 
-    // Remove an item form the cart
+	// Remove an item form the cart
 	const handleRemoveFromCart = (productId) => {
 		const updatedCart = cart.filter((item) => item.id !== productId);
 		setCart(updatedCart);
+		toast.error("product removed !", { autoClose: 500 });
 	};
 
-    // get all price
+	// get all price
 	const getTotalPrice = () => {
 		return cart.reduce((total, item) => total + item.price * item.quantity, 0);
 	};
@@ -31,7 +32,7 @@ const Nav = () => {
 	const menuItems = (
 		<>
 			<li>
-				<Link to='/'>Home</Link>
+				<Link to="/">Home</Link>
 			</li>
 			<li>
 				<Link>Categories</Link>
@@ -49,7 +50,7 @@ const Nav = () => {
 	);
 
 	return (
-		<div className="navbar bg-base-200 rounded-md">
+		<div className="navbar bg-white rounded-md shadow-xl">
 			<div className="navbar-start">
 				<div className="dropdown">
 					<label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -75,7 +76,7 @@ const Nav = () => {
 						{menuItems}
 					</ul>
 				</div>
-                
+
 				<div>
 					<img
 						className="w-12 h-12 lg:block sm:hidden"
@@ -90,9 +91,9 @@ const Nav = () => {
 			<div className="navbar-center hidden lg:flex">
 				<ul className="menu menu-horizontal px-1">{menuItems}</ul>
 			</div>
-
+			{/* search area */}
 			<div className="navbar-end gap-2">
-				<div className="form-control">
+				<div className="form-control sm:hidden lg:block">
 					<input
 						type="text"
 						placeholder="Search"
@@ -126,7 +127,7 @@ const Nav = () => {
 						tabIndex={0}
 						className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
 					>
-						{/* //{cart.length} */}
+						{/* //{cart length} */}
 						<div className="card-body">
 							{cart.length === 0 ? (
 								<p>Your cart is empty.</p>
@@ -136,7 +137,7 @@ const Nav = () => {
 										<div key={item.id} className="cart-item flex">
 											<button
 												onClick={() => handleRemoveFromCart(item.id)}
-												className="btn btn-xs mt-2 mr-2"
+												className="btn btn-xs btn-error mt-2 mr-2"
 											>
 												X
 											</button>
@@ -152,6 +153,7 @@ const Nav = () => {
 											<div className="cart-item-info ml-3">
 												<h3 className="text-xs">{item.title}</h3>
 												<p className="text-xs">${item.price}</p>
+												{/* total quantity of items */}
 												<input
 													className="w-10"
 													type="number"
@@ -171,7 +173,7 @@ const Nav = () => {
 						</div>
 					</div>
 				</div>
-
+				{/* profile */}
 				<div className="dropdown dropdown-end">
 					<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
 						<div className="w-10 rounded-full">

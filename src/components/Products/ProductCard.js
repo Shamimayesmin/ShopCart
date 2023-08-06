@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ product, handleAddToCart }) => {
+const ProductCard = ({ product, handleAddToCart}) => {
 	const { image, id, description, price, title, rating } = product;
-	console.log(product);
+	// console.log(product);
 
 	return (
-		<div className="card w-96 bg-base-100 shadow-xl">
+		<div className="card max-w-xs mx-auto bg-base-100 shadow-md">
             {/* click image to see product details */}
 			<Link to={`/details/${id}`}>
 				<figure>
